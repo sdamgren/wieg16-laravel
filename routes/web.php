@@ -22,3 +22,15 @@ Route::get('/customer/{id}', 'CustomerController@oneId');
 Route::get('/customer/{id}/address', 'CustomerController@showIdAndAddress');
 
 Route::get('/customers/by-company/{company_id}', 'CustomersController@customersByCompany_id');
+
+Route::resource('product', 'ProductController');
+
+Route::resource('group', 'GroupController');
+
+Route::resource('groupPrice', 'GroupPriceController');
+
+Route::get('/stripe', 'StripeController@index');
+
+Route::post('/stripe', 'StripeController@checkout');
+
+Route::post('/stripe', 'StripeController@charge');

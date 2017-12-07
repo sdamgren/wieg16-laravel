@@ -40,4 +40,7 @@ class Customer extends Model
 
     ];
 
+    public function order() {
+        return $this->hasMany(Order::class);
+    }
 }

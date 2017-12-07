@@ -13,24 +13,23 @@ class CreateShippingAddressIdTable extends Migration
      */
     public function up()
     {
-        Schema::create('shipping_address_id', function (Blueprint $table) {
+        Schema::create('shipping_addresses', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
-            $table->bigInteger('customer_id',false,true)->nullable();
-            $table->bigInteger('customer_address_id',false,true)->nullable();
-            $table->string('email',255)->nullable();
-            $table->string('firstname',50)->nullable();
-            $table->string('lastname',50)->nullable();
+            $table->bigInteger('customer_id', false, true)->nullable();
+            $table->bigInteger('customer_address_id', false, true)->nullable();
+            $table->string('email', 255)->nullable();
+            $table->string('firstname', 50)->nullable();
+            $table->string('lastname', 50)->nullable();
             $table->string('postcode')->nullable();
-            $table->string('street',50)->nullable();
-            $table->string('city',50)->nullable();
+            $table->string('street', 50)->nullable();
+            $table->string('city', 50)->nullable();
             $table->string('telephone')->nullable();
-            $table->string('country_id',20)->nullable();
-            $table->string('address_type',50)->nullable();
-            $table->string('company',50)->nullable();
-            $table->string('country',50)->nullable();
-            $table->timestamps();
+            $table->string('country_id', 20)->nullable();
+            $table->string('address_type', 50)->nullable();
+            $table->string('company', 50)->nullable();
+            $table->string('country', 50)->nullable();
 
         });
     }
@@ -42,6 +41,6 @@ class CreateShippingAddressIdTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shipping_address_id');
+        Schema::dropIfExists('shipping_addresses');
     }
 }
