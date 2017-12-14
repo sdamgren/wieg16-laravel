@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Product::all());
     }
 
     /**
@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products/create');
     }
 
     /**
@@ -35,7 +35,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product();
+        $add = $request->all();
+        $product->fill($add)->save();
+
     }
 
     /**
@@ -46,7 +49,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return response()->json($product);
     }
 
     /**
@@ -57,7 +60,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('products/edit');
     }
 
     /**
@@ -69,7 +72,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+
+
     }
 
     /**
@@ -80,6 +84,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        return view('products/delete');
+
+
     }
 }
