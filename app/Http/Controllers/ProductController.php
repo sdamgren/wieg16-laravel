@@ -60,6 +60,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        $edit = Product::find($product);
         return view('products/edit');
     }
 
@@ -72,7 +73,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-
+        $add = $request->all();
+        $product->fill($add)->save();
 
     }
 
@@ -84,6 +86,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+
+        $product->delete();
         return view('products/delete');
 
 

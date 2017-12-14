@@ -90,19 +90,21 @@
             <div class="content">
                 <div class="title m-b-md">
 
-                    Update Product
-
-                    <form action="" method = "post">
+                    Edit Product
+                    <h1>Edit product: {{$product->name}}</h1>
+                    <form action="{{ action('ProductController@update', $product) }}"  method="post">
+                        {{ csrf_field() }}
+                        {{ method_field('PUT') }}
                         Id:
-                        <input type="text" name="id" value="id">
+                        <input type="number" name="entity_id" value="{{ $product->entity_id }}" placeholder="Id">
                         <br>
                         Status:
-                        <input type="text" name="status" value="status">
+                        <input type="text" name="status" value="{{ $product->status }}" placeholder="Status">
                         <br>
                         Product Name:
-                        <input type="text" name="Product Name" value="Product Name">
+                        <input type="text" name="name" value="{{ $product->name }}" placeholder="Product Name">
                         <br>
-                        <input type="submit" value="Update">
+                        <input type="submit" value="Edit product">
                     </form>
                 </div>
             </div>

@@ -1,4 +1,10 @@
-<!doctype html>
+<?php
+/**
+ * Created by PhpStorm.
+ * User: sandradamgren
+ * Date: 2017-12-14
+ * Time: 22:41
+ */<!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
@@ -17,8 +23,8 @@
 
         <!-- Styles -->
         <style>
-            html, body {
-                background-color: #fff;
+html, body {
+    background-color: #fff;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -27,36 +33,36 @@
             }
 
             .full-height {
-                height: 100vh;
+    height: 100vh;
             }
 
             .flex-center {
-                align-items: center;
+    align-items: center;
                 display: flex;
                 justify-content: center;
             }
 
             .position-ref {
-                position: relative;
-            }
+    position: relative;
+}
 
             .top-right {
-                position: absolute;
-                right: 10px;
+    position: absolute;
+    right: 10px;
                 top: 18px;
             }
 
             .content {
-                text-align: center;
+    text-align: center;
             }
 
             .title {
-                font-size: 84px;
+    font-size: 84px;
             }
 
             .links > a {
-                color: #636b6f;
-                padding: 0 25px;
+    color: #636b6f;
+    padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
                 letter-spacing: .1rem;
@@ -65,7 +71,7 @@
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+    margin-bottom: 30px;
             }
         </style>
 
@@ -76,30 +82,39 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+@if (Route::has('login'))
+    <div class="top-right links">
+        @auth
+            <a href="{{ url('/home') }}">Home</a>
+            @else
+                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('register') }}">Register</a>
+                @endauth
+    </div>
+@endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Delete Product
-                    <h1>Delete product: {{$product->name}}</h1>
-                    <form action="{{ action('ProductController@destroy', $group->entity_id) }}" method="post">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
+<div class="content">
+    <div class="title m-b-md">
 
-                        <input type="submit" value="Delete product">
-                    </form>
-                </div>
-            </div>
-        </div>
+        Create Product
 
-    </body>
+        <form action="{{ action('GroupController@store') }}" method = "post">
+            {{ csrf_field() }}
+            Id:
+            <input type="number" name="customer_group_id" value="" placeholder="Id">
+            <br>
+            Status:
+            <input type="text" name="status" value="" placeholder="Status">
+            <br>
+            Product Name:
+            <input type="text" name="name" value="" placeholder="Product Name">
+            <br>
+            <input type="submit" value="Create group">
+        </form>
+
+    </div>
+</div>
+</div>
+
+</body>
 </html>

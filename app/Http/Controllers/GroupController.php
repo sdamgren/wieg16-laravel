@@ -14,7 +14,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Group::all());
     }
 
     /**
@@ -24,7 +24,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('products/create');
     }
 
     /**
@@ -35,7 +35,9 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Group();
+        $add = $request->all();
+        $product->fill($add)->save();
     }
 
     /**
@@ -46,7 +48,8 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        //
+        return response()->json($group);
+
     }
 
     /**
@@ -57,7 +60,8 @@ class GroupController extends Controller
      */
     public function edit(Group $group)
     {
-        //
+        $edit = Group::find($group);
+        return view('products/edit');
     }
 
     /**
@@ -69,7 +73,8 @@ class GroupController extends Controller
      */
     public function update(Request $request, Group $group)
     {
-        //
+        $add = $request->all();
+        $group->fill($add)->save();
     }
 
     /**
@@ -80,6 +85,7 @@ class GroupController extends Controller
      */
     public function destroy(Group $group)
     {
-        //
+        $group->delete();
+        return view('products/delete');
     }
 }
