@@ -34,3 +34,13 @@ Route::resource('products', 'ProductController');
 Route::resource('groups', 'GroupController');
 
 Route::resource('group-prices', 'GroupPriceController');
+
+Route::get('/instagram', 'InstagramPictureController@index');
+
+
+Route::get('/twitter', 'TwitterController@index');
+
+Route::get('/twitter/count', 'TwitterController@countWords');
+
+Route::get('/twitter/count-words', 'TwitterController@countAndSort');
+
